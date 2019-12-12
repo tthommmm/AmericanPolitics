@@ -1,0 +1,42 @@
+<?php 
+include('connections/mysqli_connection.php');
+?>
+<html style = "background-image:url('img/purpleImage.jpg');background-repeat: no-repeat; background-size:cover;">
+	<head>
+		<link rel = "stylesheet" href = "css/myStyle.css" type = "text/css"/>
+	</head>
+	<body >
+		<header class = "header">
+			<p  class = 'Logo'> 
+				Forum de Politics
+			</p>
+		</header>
+		<div id = "centerul">
+			
+				<li><a href = 'index.php'> Home </a></li>
+				<li><a id = 'active' href = 'topics.php'> Topics </a></li>
+				<li style = 'float:right;'><a href = 'register.php'> Register </a></li>
+				<li style = 'float:right;'><a href = 'login.php'> Login </a></li>
+			
+		</div>
+			<div class="content">
+			<?php
+			echo "<div id = 'tableMarginWhileLoop'>";
+			$select = mysqli_query($con, "Select cat_id, topic_ID, title, body, ttl_posts from `topic` where cat_id = " . $_GET['cat_id'] . ";");
+			echo "<table id = 'forum_posts'>
+					<tr>
+						<th id = 'left'><a href = 'posts.php'>Abortion is wrong?</a></th>
+						<th>Posts: 125</th>
+						<th id = 'right'>Trechubet | 9:49</th>
+					</tr>
+				</table>";
+			echo "</div>";
+				?>
+			</div>
+		<footer class="footer">
+			<span class = 'SocialMedia'>
+				Social Media Icons
+			</span>
+		</footer>
+	</body>
+</html>
